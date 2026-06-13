@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest: #14452f;
+  --primary: #2e7d52;
+  --primary-dark: #1b5e3f;
+  --clay: #c25e3a;
+  --clay-soft: #e8c9b8;
+  --sand: #ece4d8;
+  --cream: #f7f3ec;
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --border: #e5e1d8;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+    color: var(--text);
+  }
+  a {
+    color: inherit;
+  }
+  /* Accessible focus ring */
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-control font-medium transition-colors disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-primary px-5 py-3 text-white hover:bg-primary-dark;
+  }
+  .btn-clay {
+    @apply btn bg-clay px-5 py-3 text-white hover:opacity-90;
+  }
+  .btn-outline {
+    @apply btn border border-border bg-white px-4 py-2.5 text-text hover:bg-cream;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1.5 text-sm transition-colors hover:border-primary;
+  }
+  .chip-active {
+    @apply border-primary bg-primary/10 text-primary;
+  }
+  .input {
+    @apply w-full rounded-control border border-border bg-white px-3.5 py-2.5 text-text placeholder:text-muted focus:border-primary focus:outline-none;
+  }
+  .badge-destacada {
+    @apply inline-flex items-center gap-1 rounded-full bg-clay px-2.5 py-1 text-xs font-semibold text-white shadow-soft;
+  }
+}
+
+/* Leaflet: ensure controls/markers render above content and tiles fill */
+.leaflet-container {
+  font-family: inherit;
+  z-index: 0;
+}
+
+/* Hide scrollbar for horizontal rails while keeping scroll */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

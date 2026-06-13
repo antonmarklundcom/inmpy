@@ -141,3 +141,22 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+
+# env
+.env
+.env.local
+.env*.local
+
+# keep placeholder so /public/images exists in git
+!public/images/.gitkeep

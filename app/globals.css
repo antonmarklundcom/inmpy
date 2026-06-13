@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  /* Hex tokens for direct CSS usage */
   --forest: #14452f;
   --primary: #2e7d52;
   --primary-dark: #1b5e3f;
@@ -14,6 +15,19 @@
   --text: #1a1a1a;
   --muted: #6b6b6b;
   --border: #e5e1d8;
+
+  /* RGB channels — let Tailwind apply opacity modifiers (e.g. bg-primary/10) */
+  --c-forest: 20 69 47;
+  --c-primary: 46 125 82;
+  --c-primary-dark: 27 94 63;
+  --c-clay: 194 94 58;
+  --c-clay-soft: 232 201 184;
+  --c-sand: 236 228 216;
+  --c-cream: 247 243 236;
+  --c-bg: 255 255 255;
+  --c-text: 26 26 26;
+  --c-muted: 107 107 107;
+  --c-border: 229 225 216;
 }
 
 @layer base {

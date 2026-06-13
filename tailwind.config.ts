@@ -9,21 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        forest: "var(--forest)",
+        forest: "rgb(var(--c-forest) / <alpha-value>)",
         primary: {
-          DEFAULT: "var(--primary)",
-          dark: "var(--primary-dark)",
+          DEFAULT: "rgb(var(--c-primary) / <alpha-value>)",
+          dark: "rgb(var(--c-primary-dark) / <alpha-value>)",
         },
         clay: {
-          DEFAULT: "var(--clay)",
-          soft: "var(--clay-soft)",
+          DEFAULT: "rgb(var(--c-clay) / <alpha-value>)",
+          soft: "rgb(var(--c-clay-soft) / <alpha-value>)",
         },
-        sand: "var(--sand)",
-        cream: "var(--cream)",
-        bg: "var(--bg)",
-        text: "var(--text)",
-        muted: "var(--muted)",
-        border: "var(--border)",
+        sand: "rgb(var(--c-sand) / <alpha-value>)",
+        cream: "rgb(var(--c-cream) / <alpha-value>)",
+        bg: "rgb(var(--c-bg) / <alpha-value>)",
+        text: "rgb(var(--c-text) / <alpha-value>)",
+        muted: "rgb(var(--c-muted) / <alpha-value>)",
+        border: "rgb(var(--c-border) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],

@@ -47,6 +47,12 @@ export default async function AlquilarTipoPage({
 }) {
   const { tipo } = await params;
   if (!PLURAL_TO_TIPO[tipo]) notFound();
+  const listings = await getAllListings();
+  const { count } = buildLandingContent(listings, {
+    operacion: "alquiler",
+    tipoPlural: tipo,
+  });
+  if (count === 0) notFound();
   const sp = await searchParams;
   return (
     <ResultsScreen operacion="alquiler" tipoPlural={tipo} searchParams={sp} />

@@ -47,6 +47,12 @@ export default async function ComprarTipoPage({
 }) {
   const { tipo } = await params;
   if (!PLURAL_TO_TIPO[tipo]) notFound();
+  const listings = await getAllListings();
+  const { count } = buildLandingContent(listings, {
+    operacion: "venta",
+    tipoPlural: tipo,
+  });
+  if (count === 0) notFound();
   const sp = await searchParams;
   return (
     <ResultsScreen operacion="venta" tipoPlural={tipo} searchParams={sp} />

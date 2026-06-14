@@ -45,6 +45,14 @@ export default async function ComprarTipoLugarPage({
 }) {
   const { tipo, lugar } = await params;
   if (!PLURAL_TO_TIPO[tipo]) notFound();
+  // 404 unknown / empty location combos (noindex by omission, like the sitemap).
+  const listings = await getAllListings();
+  const { count } = buildLandingContent(listings, {
+    operacion: "venta",
+    tipoPlural: tipo,
+    lugarSlug: lugar,
+  });
+  if (count === 0) notFound();
   const sp = await searchParams;
   return (
     <ResultsScreen

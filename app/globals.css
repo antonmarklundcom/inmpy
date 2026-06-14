@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest: #14452f;
+  --primary: #2e7d52;
+  --primary-dark: #1b5e3f;
+  --clay: #c25e3a;
+  --clay-soft: #e8c9b8;
+  --sand: #ece4d8;
+  --cream: #f7f3ec;
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --border: #e5e1d8;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-fraunces), Georgia, serif;
+  }
+
+  /* Accessible focus ring for keyboard users. */
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-4 sm:px-6;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-control px-5 py-3
+      text-sm font-semibold transition-colors duration-150 disabled:cursor-not-allowed
+      disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-dark;
+  }
+
+  .btn-clay {
+    @apply btn bg-clay text-white hover:brightness-95;
+  }
+
+  .btn-outline {
+    @apply btn border border-line bg-white text-ink hover:bg-cream;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-white
+      px-3.5 py-2 text-sm font-medium text-ink transition-colors hover:border-primary
+      hover:text-primary;
+  }
+
+  .chip-active {
+    @apply border-primary bg-primary text-white hover:text-white;
+  }
+
+  .input {
+    @apply w-full rounded-control border border-line bg-white px-3.5 py-2.5 text-sm
+      text-ink placeholder:text-muted focus:border-primary focus:outline-none;
+  }
+
+  .card {
+    @apply rounded-card bg-white shadow-card;
+  }
+
+  .section-title {
+    @apply font-serif text-2xl font-semibold text-forest sm:text-3xl;
+  }
+
+  /* Hide scrollbars on horizontal rails while keeping scroll. */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Leaflet: keep map controls below sticky header, fix marker default icon path. */
+.leaflet-container {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  z-index: 0;
+}
